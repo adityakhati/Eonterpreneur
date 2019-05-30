@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.android.evineon">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.Dark"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".Referral_Activity"></activity>
+        <activity
+            android:name=".AddSearch_Activity"
+            android:theme="@style/AppTheme.Dark.FullSreen" />
+        <activity android:name=".TYFCB_Activity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name="Profile_Activities.Profile_edit_Activity" />
+        <activity android:name="Chat_Activities.Chatting_Activity" />
+        <activity android:name="Group_Activities.User_Group_Activity" />
+        <activity android:name="Group_Activities.Search_User_Group_Activity" />
+        <activity android:name="Group_Activities.Group_profile_Activity" />
+        <activity android:name="Profile_Activities.Meeting_Profile_activity" />
+        <activity android:name="Account_Activities.Add_Account_Activity" />
+        <activity android:name="Account_Activities.Accounts_Activity" />
+        <activity android:name="Group_Activities.Add_partcipants_Activity" />
+        <activity android:name="Group_Activities.Group_Activity" />
+        <activity android:name="Group_Activities.Create_group_Activity" />
+        <activity android:name="Profile_Activities.Profile_Activity" />
+        <activity android:name="Profile_Activities.New_Profile_Activity" />
+        <activity android:name="Schedule_meeting.Schedule_Meeting_Activity" />
+        <activity android:name=".Upload_image" />
+        <activity android:name="Account_Activities.Account_details_Activity" />
+        <activity android:name="Connection.Connection_Activity" />
+        <activity android:name="Search_activities.SearchActivity" />
+        <activity android:name="Schedule_meeting.MeetingActivity" />
+        <activity
+            android:name="Signing_Activities.LoginActivity"
+            android:theme="@style/AppTheme.Dark.FullSreen" />
+        <activity
+            android:name="Signing_Activities.ForgetAndChangePasswordActivity"
+            android:theme="@style/AppTheme.Dark.FullSreen" />
+        <activity
+            android:name="Signing_Activities.RegisterActivity"
+            android:theme="@style/AppTheme.Dark.FullSreen" />
+        <activity
+            android:name=".Splashscreen"
+            android:theme="@style/AppTheme.Dark.FullSreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,134 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" >
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" >
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.Dark" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+
+        <item name="actionBarStyle">@style/AppTheme.Dark.ActionBar</item>
+        <item name="android:navigationBarColor">@color/status_bar</item>
+        <item name="android:statusBarColor">@color/status_bar</item>
+        <item name="android:windowBackground">@color/background</item>
+
+        <item name="colorControlNormal">@color/secondary_text</item>
+        <item name="colorControlActivated">@color/primary_text</item>
+        <item name="colorControlHighlight">@color/primary_text</item>
+        <item name="android:textColorHint">@color/secondary_text</item>
+
+        <item name="colorButtonNormal">@color/primary</item>
+    </style>
+
+    <style name="AppTheme.Dark.FullSreen" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+
+        <item name="android:navigationBarColor">@color/background</item>
+        <item name="android:statusBarColor">@color/background</item>
+        <item name="android:windowBackground">@color/background</item>
+
+        <item name="colorControlNormal">@color/secondary_text</item>
+        <item name="colorControlActivated">@color/primary_text</item>
+        <item name="colorControlHighlight">@color/primary_text</item>
+        <item name="android:textColorHint">@color/secondary_text</item>
+
+        <item name="colorButtonNormal">@color/primary</item>
+    </style>
+
+    <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">@color/primary_light</item>
+        <item name="android:textColorPrimary">@color/primary_text</item>
+        <item name="background">@color/card_bg</item>
+        <item name="colorControlNormal">@color/primary_text</item>
+        <item name="colorControlActivated">@color/primary</item>
+        <item name="textColorAlertDialogListItem">@color/secondary_text</item>
+
+    </style>
+
+    <style name="AppTheme.Dark.ActionBar" parent="Widget.AppCompat.ActionBar">
+        <item name="background">@color/app_bar</item>
+    </style>
+
+    <style name="AppTheme.Dark.ToolBar" parent="Widget.AppCompat.Toolbar">
+        <item name="background">@color/app_bar</item>
+    </style>
+
+    <style name="Button.Primary" parent="Widget.AppCompat.Button">
+        <item name="background">@drawable/btn_primary</item>
+        <item name="colorControlHighlight">@color/primary_light</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:padding">18dp</item>
+        <item name="android:textSize">18dip</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ButtonBorder.Primary" parent="Widget.AppCompat.Button.Colored">
+        <item name="background">@drawable/border_btn_primary</item>
+        <item name="colorControlHighlight">@color/primary_darker</item>
+        <item name="android:textColor">@color/primary</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:padding">18dp</item>
+        <item name="android:textSize">18dip</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="CardView.Dark" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">3dp</item>
+        <item name="cardMaxElevation">4dp</item>
+        <item name="cardCornerRadius">8dp</item>
+        <item name="cardBackgroundColor">@color/card_bg</item>
+        <item name="contentPadding">12dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_margin">4dp</item>
+    </style>
+
+    <style name="CardView.Dark.Text" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textSize">28dp</item>
+        <item name="android:textColor">@color/app_bar</item>
+    </style>
+
+    <style name="CardView.Dark.TextLight" parent="CardView.Dark.Text">
+        <item name="android:textColor">@color/secondary_text</item>
+    </style>
+
+    <style name="CardView.Dark.Text.Medium" parent="CardView.Dark.Text">
+        <item name="android:textSize">22dp</item>
+    </style>
+
+    <style name="CardView.Dark.TextLight.Medium" parent="CardView.Dark.TextLight">
+        <item name="android:textSize">22dp</item>
+    </style>
+
+    <style name="AppTheme.RadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:checked">false</item>
+        <item name="buttonTint">@color/primary_dark</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:layout_marginLeft">12dp</item>
+        <item name="android:layout_marginRight">12dp</item>
+        <item name="android:textSize">18dip</item>
+    </style>
+
+</resources>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="graylight">#fafafa</color>
+    <color name="startblue">#09c6df</color>
+    <color name="endblue">#0bcce6</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="primary">#1e88e5</color>
+    <color name="primary_dark">#1565c0</color>
+    <color name="primary_darker">#1565c0</color>
+    <color name="primary_light">#64c1ff</color>
+    <color name="accent">#64dd17</color>
+
+    <color name="status_bar">#111111</color>
+    <color name="app_bar">#111111</color>
+    <color name="background">#212121</color>
+    <color name="card_bg">#303030</color>
+
+    <color name="primary_text">#ffffffff</color>
+    <color name="secondary_text">#b3ffffff</color>
+    <color name="divider">#1fffffff</color>
+    <color name="disabled_text">#80ffffff</color>
+
+    <color name="muted_red">#ff5252</color>
+    <color name="muted_pink">#ff4081</color>
+    <color name="muted_purple">#e040fb</color>
+    <color name="muted_blue">#448aff</color>
+    <color name="muted_green">#69f0ae</color>
+    <color name="muted_yellow">#eeff41</color>
+    <color name="muted_orange">#ffab40</color>
+    <color name="muted_deep_purple">#7c4dff</color>
+
+
+</resources>
