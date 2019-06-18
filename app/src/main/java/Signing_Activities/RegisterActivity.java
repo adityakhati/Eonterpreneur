@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.android.evineon.MainActivity;
 import com.example.android.evineon.R;
+import com.example.android.evineon.Splashscreen;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -160,7 +161,7 @@ public class RegisterActivity extends AppCompatActivity {
                                                     }
                                                 } else {
                                                     new Addtodatabase_register(fname, lname, city, dateString, email, rbgender_str, rbusertype_str = null, inputnum,org,classi);
-                                                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                                    Intent intent = new Intent(RegisterActivity.this, Splashscreen.class);
                                                     startActivity(intent);
                                                     finish();
                                                 }

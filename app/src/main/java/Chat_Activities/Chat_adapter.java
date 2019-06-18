@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.android.evineon.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,7 +28,7 @@ public class Chat_adapter extends RecyclerView.Adapter<Chat_adapter.ArtistViewHo
     private List<Chat> results;
     private EditText ed_search;
     private String fname,lname,email,date,amt,phonenum,fullnamme,status;
-    private String userid,groupname;
+    private String userid,groupname,uid;
 
 
     DatabaseReference myRef;
@@ -53,7 +54,10 @@ public class Chat_adapter extends RecyclerView.Adapter<Chat_adapter.ArtistViewHo
     public void onBindViewHolder(@NonNull final Chat_adapter.ArtistViewHolder holder, final int position) {
         final Chat result = results.get(position);
 
-        //holder.textViewName.setText(result.product);
+        auth=FirebaseAuth.getInstance();
+        FirebaseUser user=auth.getCurrentUser();
+        uid=user.getUid();
+
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         myRef = mFirebaseDatabase.getReference();
         final String num=result.num;
@@ -65,19 +69,12 @@ public class Chat_adapter extends RecyclerView.Adapter<Chat_adapter.ArtistViewHo
                 String text=dataSnapshot.child("Groups").child(groupname).child("Message").child(num).child("text").getValue().toString();
                 fname=dataSnapshot.child("Users").child(userid).child("FirstName").getValue().toString();
                 lname=dataSnapshot.child("Users").child(userid).child("LastName").getValue().toString();
-              /*  amt=dataSnapshot.child("Groups").child(groupname).child("Chats").child(num).child("amount").getValue().toString();
-              */
                 date=dataSnapshot.child("Groups").child(groupname).child("Message").child(num).child("time").getValue().toString();
-                /*email=dataSnapshot.child("Users").child(userid).child("Email").getValue().toString();
-                gender=dataSnapshot.child("Users").child(userid).child("Gender").getValue().toString();
-                dob=dataSnapshot.child("Users").child(userid).child("DOB").getValue().toString();
-                phonenum=dataSnapshot.child("Users").child(userid).child("PhoneNumber").getValue().toString();
-                if(dataSnapshot.child("Connection").child(uid).hasChild(userid))//childe(userid))
-                {
-                    status = dataSnapshot.child("Connection").child(uid).child(userid).getValue().toString();
-                    Log.d("STATUS SEARCH ADAPTEE",status);
-                }*/
                 fullnamme=fname+" "+lname;
+                if(userid.equals(uid))
+                    holder.chatlayout.setBackgroundResource(R.drawable.bubble_in);
+                else
+                    holder.chatlayout.setBackgroundResource(R.drawable.bubble_out);
                 holder.textViewName.setText(text);
                 holder.textViewrupees.setText(fullnamme);
                 holder.textViewdate.setText(date);
@@ -88,16 +85,6 @@ public class Chat_adapter extends RecyclerView.Adapter<Chat_adapter.ArtistViewHo
 
             }
         });
-
-/*        holder.parentlayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, Chat_details_Activity.class);
-                intent.putExtra("Groupname",groupname);
-                intent.putExtra("Num",num);
-                context.startActivity(intent);
-            }
-        });*/
     }
 
     @Override
@@ -109,12 +96,13 @@ public class Chat_adapter extends RecyclerView.Adapter<Chat_adapter.ArtistViewHo
     class ArtistViewHolder extends RecyclerView.ViewHolder {
 
         TextView textViewName, textViewrupees,textViewdate;
-        LinearLayout parentlayout;
+        LinearLayout parentlayout,chatlayout;
 
         public ArtistViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewName = itemView.findViewById(R.id.text_view_name);
             parentlayout = itemView.findViewById(R.id.search_parent);
+            chatlayout = itemView.findViewById(R.id.chat_layout);
             textViewrupees = itemView.findViewById(R.id.textview_by);
             textViewdate = itemView.findViewById(R.id.textview_date);
 

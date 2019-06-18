@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import Chat_Activities.Chatting_Activity;
+import com.example.android.evineon.Group_meeting_Activity;
 import com.example.android.evineon.R;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
@@ -18,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import Account_Activities.Accounts_Activity;
-import Schedule_meeting.MeetingActivity;
+import Chat_Activities.Chatting_Activity;
 import Search_activities.SearchActivity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,11 +45,16 @@ public class Group_Activity extends AppCompatActivity {
     private void group(){
 
         materialDesignFAM = (FloatingActionMenu) findViewById(R.id.material_design_android_floating_action_menu);
-        floatingActionButton1 = (FloatingActionButton) findViewById(R.id.material_design_floating_action_menu_item1);
         floatingActionButton2 = (FloatingActionButton) findViewById(R.id.material_design_floating_action_menu_item2);
         floatingActionButton3 = (FloatingActionButton) findViewById(R.id.floating_action_add_participants);
 
-        floatingActionButton1.setOnClickListener(new View.OnClickListener() {
+        if (usertype.equals("superadmin") || usertype.equals("admin")) {
+        }
+        else{
+            materialDesignFAM.setVisibility(View.GONE);
+        }
+
+        findViewById(R.id.card_view_chat_room).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //TODO something when floating action menu first item clicked
                 Intent intent=new Intent(Group_Activity.this, Chatting_Activity.class);
@@ -79,6 +84,7 @@ public class Group_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(Group_Activity.this, Accounts_Activity.class);
                 intent.putExtra("Groupname",groupname);
+                intent.putExtra("Usertype",usertype);
                 startActivity(intent);
             }
         });
@@ -86,13 +92,9 @@ public class Group_Activity extends AppCompatActivity {
         findViewById(R.id.card_view_group_heirarchy).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            /*    Intent intent=new Intent(Group_Activity.this, SearchActivity.class);
-                intent.putExtra("Groupname",groupname);
-                intent.putExtra("Search","GUser");
-                startActivity(intent);
-            */
                 Intent intent=new Intent(Group_Activity.this, User_Group_Activity.class);
                 intent.putExtra("Groupname",groupname);
+                intent.putExtra("Usertype",usertype);
                 startActivity(intent);
             }
         });
@@ -100,8 +102,9 @@ public class Group_Activity extends AppCompatActivity {
         findViewById(R.id.card_view_meeting).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Group_Activity.this, MeetingActivity.class);
+                Intent intent=new Intent(Group_Activity.this, Group_meeting_Activity.class);
                 intent.putExtra("Groupname",groupname);
+                intent.putExtra("Usertype",usertype);
                 startActivity(intent);
             }
         });
@@ -147,8 +150,6 @@ public class Group_Activity extends AppCompatActivity {
 
 
     private void adminuser(){
-
-
         findViewById(R.id.card_view_join_group).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

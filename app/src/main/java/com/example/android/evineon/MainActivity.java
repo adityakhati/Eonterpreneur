@@ -20,6 +20,8 @@ import Profile_Activities.Profile_Activity;
 import Schedule_meeting.MeetingActivity;
 import Search_activities.SearchActivity;
 import Signing_Activities.LoginActivity;
+import TYFCBandReferral_Activities.Referral_Activity;
+import TYFCBandReferral_Activities.TYFCB_Activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
         FirebaseApp.initializeApp(MainActivity.this);
 
         setContentView(R.layout.activity_main);
-
-
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         myRef = mFirebaseDatabase.getReference();

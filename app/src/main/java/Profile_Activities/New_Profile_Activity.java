@@ -28,7 +28,6 @@ import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import Group_Activities.Group_Activity;
-import Group_Activities.Group_profile_Activity;
 import Schedule_meeting.Schedule_Meeting_Activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -37,8 +36,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class New_Profile_Activity extends AppCompatActivity {
     ImageView img_profile_pic;
     Button connect, request_bt, accept_bt, reject_bt, meet_bt;
-    TextView tvname, tvemail, tvgender, tvdob, tvphonenuber, tvmeet;
-    private String email, dob, gender, phonenum, fullname, fname, lname, uid, userid, status,status_meet,date_meet, activity, url,time_meet;
+    TextView tvname, tvemail, tvgender, tvdob, tvphonenuber, tvmeet, tvorg, tvclass;
+    private String email, dob, gender, phonenum, fullname, fname, lname, uid, userid,orgstr,classstr, status,status_meet,date_meet, activity, url,time_meet;
     private int flag=0;
 
     //Firebase
@@ -106,6 +105,10 @@ public class New_Profile_Activity extends AppCompatActivity {
                     status = dataSnapshot.child("Connection").child(uid).child(userid).getValue().toString();
                     Log.d("STATUS SEARCH ADAPTER", status);
                 }
+                orgstr= dataSnapshot.child("Users").child(userid).child("org").getValue().toString();
+                classstr= dataSnapshot.child("Users").child(userid).child("class").getValue().toString();
+                tvclass.setText(classstr);
+                tvorg.setText(orgstr);
                 fullname = fname + " " + lname;
                 tvdob.setText(dob);
                 tvemail.setText(email);
@@ -152,9 +155,14 @@ public class New_Profile_Activity extends AppCompatActivity {
                     status = dataSnapshot.child("Connection").child(uid).child(userid).getValue().toString();
                     Log.d("STATUS SEARCH ADAPTER", status);
                 }*/
+
                 status_meet = dataSnapshot.child("Meeting").child(userid).child(uid).child("status").getValue().toString();
                 date_meet = dataSnapshot.child("Meeting").child(userid).child(uid).child("date").getValue().toString();
                 time_meet = dataSnapshot.child("Meeting").child(userid).child(uid).child("time").getValue().toString();
+                orgstr= dataSnapshot.child("Users").child(userid).child("org").getValue().toString();
+                classstr= dataSnapshot.child("Users").child(userid).child("class").getValue().toString();
+                tvclass.setText(classstr);
+                tvorg.setText(orgstr);
                 fullname = fname + " " + lname;
                 tvdob.setText(date_meet);
                 tvemail.setText(email);
@@ -444,6 +452,8 @@ public class New_Profile_Activity extends AppCompatActivity {
         tvname = (TextView) findViewById(R.id.name);
         tvgender = (TextView) findViewById(R.id.gender);
         tvphonenuber = (TextView) findViewById(R.id.phonenumber);
+        tvorg = (TextView) findViewById(R.id.org_tv);
+        tvclass = (TextView) findViewById(R.id.class_tv);
 
         Intent intent = getIntent();
         activity = intent.getStringExtra("Activity");

@@ -53,7 +53,6 @@ public class Accounts_adapter extends RecyclerView.Adapter<Accounts_adapter.Arti
     @Override
     public void onBindViewHolder(@NonNull final Accounts_adapter.ArtistViewHolder holder, final int position) {
         final Account result = results.get(position);
-
         //holder.textViewName.setText(result.product);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         myRef = mFirebaseDatabase.getReference();
@@ -67,18 +66,9 @@ public class Accounts_adapter extends RecyclerView.Adapter<Accounts_adapter.Arti
                 lname=dataSnapshot.child("Users").child(userid).child("LastName").getValue().toString();
                 amt=dataSnapshot.child("Groups").child(groupname).child("Accounts").child(num).child("amount").getValue().toString();
                 date=dataSnapshot.child("Groups").child(groupname).child("Accounts").child(num).child("date").getValue().toString();
-                /*email=dataSnapshot.child("Users").child(userid).child("Email").getValue().toString();
-                gender=dataSnapshot.child("Users").child(userid).child("Gender").getValue().toString();
-                dob=dataSnapshot.child("Users").child(userid).child("DOB").getValue().toString();
-                phonenum=dataSnapshot.child("Users").child(userid).child("PhoneNumber").getValue().toString();
-                if(dataSnapshot.child("Connection").child(uid).hasChild(userid))//childe(userid))
-                {
-                    status = dataSnapshot.child("Connection").child(uid).child(userid).getValue().toString();
-                    Log.d("STATUS SEARCH ADAPTEE",status);
-                }*/
                 fullnamme=fname+" "+lname;
                 holder.textViewName.setText(fullnamme);
-                holder.textViewrupees.setText(amt);
+                holder.textViewrupees.setText("Rs "+amt);
                 holder.textViewdate.setText(date);
             }
 

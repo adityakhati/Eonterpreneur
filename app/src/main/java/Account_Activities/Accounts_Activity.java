@@ -26,7 +26,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class Accounts_Activity extends AppCompatActivity {
 
 
-    String groupname;
+    String groupname,usertype;
 
     DatabaseReference dbArtists;
     private DataSnapshot dataSnapshot;
@@ -54,6 +54,13 @@ public class Accounts_Activity extends AppCompatActivity {
 
         Intent intent=getIntent();
         groupname=intent.getExtras().getString("Groupname");
+        usertype=intent.getExtras().getString("Usertype");
+
+        if(usertype.equals("treasurer")) {
+        }
+        else {
+            findViewById(R.id.floating_action_add_acc).setVisibility(View.GONE);
+        }
 
         findViewById(R.id.floating_action_add_acc).setOnClickListener(new View.OnClickListener() {
             @Override
