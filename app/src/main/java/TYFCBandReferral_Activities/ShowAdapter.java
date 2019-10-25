@@ -124,7 +124,7 @@ public class ShowAdapter extends RecyclerView.Adapter<ShowAdapter.ArtistViewHold
             super(itemView);
             textViewName = itemView.findViewById(R.id.text_view_name);
             parentlayout = itemView.findViewById(R.id.search_parent);
-            textViewdate = itemView.findViewById(R.id.textview_date);
+            textViewdate = itemView.findViewById(R.id.text_view_date);
         }
     }
 }

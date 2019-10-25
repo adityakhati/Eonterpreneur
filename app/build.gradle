@@ -46,5 +46,4 @@ dependencies {
     implementation 'com.github.clans:fab:1.6.4'
     implementation 'gr.pantrif:easy-android-splash-screen:0.0.1'
 
-
 }

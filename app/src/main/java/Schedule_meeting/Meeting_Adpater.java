@@ -141,7 +141,7 @@ public class Meeting_Adpater extends RecyclerView.Adapter<Meeting_Adpater.Meetin
             textViewName = itemView.findViewById(R.id.text_view_name);
             parentlayout = itemView.findViewById(R.id.search_parent);
             textViewEmail = itemView.findViewById(R.id.textview_status);
-            textViewdate = itemView.findViewById(R.id.textview_date);
+            textViewdate = itemView.findViewById(R.id.text_view_date);
         }
     }
 

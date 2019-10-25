@@ -15,11 +15,16 @@ import android.widget.TimePicker;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
 
+import Group_Activities.Group_Activity;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Group_meeting_Activity extends AppCompatActivity {
@@ -68,19 +73,39 @@ public class Group_meeting_Activity extends AppCompatActivity {
                 loc_str=edloc.getText().toString();
                 reason_str=edreason.getText().toString();
 
-                if(time_str!=null || dateString!=null || subject_str.equals(""))
-                {
+                if(time_str!=null || dateString!=null || subject_str.equals("")) {
                     auth = FirebaseAuth.getInstance();
                     FirebaseUser user = auth.getCurrentUser();
-                    String uid = user.getUid();
+                    final String uid = user.getUid();
                     mFirebaseDatabase = FirebaseDatabase.getInstance();
                     myRef = mFirebaseDatabase.getReference();
-                    myRef.child("Groups").child(groupname).child("Meeting").child("date").setValue(dateString);
-                    myRef.child("Groups").child(groupname).child("Meeting").child("time").setValue(time_str);
-                    myRef.child("Groups").child(groupname).child("Meeting").child("location").setValue(loc_str);
-                    myRef.child("Groups").child(groupname).child("Meeting").child("subject").setValue(subject_str);
-                    myRef.child("Groups").child(groupname).child("Meeting").child("reason").setValue(reason_str);
-                    myRef.child("Groups").child(groupname).child("Meeting").child("by").setValue(uid);
+
+                    myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            String x;
+                            int i;
+                            for (i = 1; ; i++) {
+                                x = Integer.toString(i);
+                                if (!dataSnapshot.child("Groups").child(groupname).child("Meeting").hasChild(x)) {
+                                    break;
+                                }
+                            }
+                            myRef.child("Groups").child(groupname).child("Meeting").child(x).child("date").setValue(dateString);
+                            myRef.child("Groups").child(groupname).child("Meeting").child(x).child("time").setValue(time_str);
+                            myRef.child("Groups").child(groupname).child("Meeting").child(x).child("location").setValue(loc_str);
+                            myRef.child("Groups").child(groupname).child("Meeting").child(x).child("subject").setValue(subject_str);
+                            myRef.child("Groups").child(groupname).child("Meeting").child(x).child("reason").setValue(reason_str);
+                            myRef.child("Groups").child(groupname).child("Meeting").child(x).child("by").setValue(uid);
+
+                            startActivity(new Intent(Group_meeting_Activity.this, Group_Activity.class));
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
                 }
                 else
                 {
@@ -92,6 +117,8 @@ public class Group_meeting_Activity extends AppCompatActivity {
                         btntime.setError("Fill");
 
                 }
+
+
             }
         });
 
@@ -166,13 +193,6 @@ public class Group_meeting_Activity extends AppCompatActivity {
             minutes = "0" + mins;
         else
             minutes = String.valueOf(mins);
-
-/*
-        hours_int=hours;
-        min_int=Integer.parseInt(minutes);
-*/
-
-
 
         time_str = new StringBuilder().append(hr).append(':').append(min).append(" ").append(timeSet).toString();
         btntime.setText(time_str);

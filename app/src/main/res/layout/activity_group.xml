@@ -17,7 +17,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view_group_heirarchy"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="95dp"
             style="@style/CardView.Dark"
             android:backgroundTint="@color/muted_blue">
 
@@ -52,7 +52,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view_accounts"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="95dp"
             style="@style/CardView.Dark"
             android:backgroundTint="@color/muted_red">
 
@@ -86,7 +86,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view_meeting"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="95dp"
             style="@style/CardView.Dark"
             android:backgroundTint="@color/muted_blue">
 
@@ -121,7 +121,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view_chat_room"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="95dp"
             style="@style/CardView.Dark"
             android:backgroundTint="@color/muted_red">
 

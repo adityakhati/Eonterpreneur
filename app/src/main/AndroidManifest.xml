@@ -29,6 +29,8 @@
         <activity android:name="Account_Activities.Accounts_Activity" />
         <activity android:name="Group_Activities.Add_partcipants_Activity" />
         <activity android:name="Group_Activities.Group_Activity" />
+        <activity android:name=".Groups_Meeting_show_Activity"/>
+        <activity android:name=".Group_meeting_details_Activity"/>
         <activity android:name="Group_Activities.Create_group_Activity" />
         <activity android:name="Profile_Activities.Profile_Activity" />
         <activity android:name="Profile_Activities.New_Profile_Activity" />
@@ -52,7 +54,6 @@
             android:theme="@style/AppTheme.Dark.FullSreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -104,7 +104,7 @@ public class Chat_adapter extends RecyclerView.Adapter<Chat_adapter.ArtistViewHo
             parentlayout = itemView.findViewById(R.id.search_parent);
             chatlayout = itemView.findViewById(R.id.chat_layout);
             textViewrupees = itemView.findViewById(R.id.textview_by);
-            textViewdate = itemView.findViewById(R.id.textview_date);
+            textViewdate = itemView.findViewById(R.id.text_view_date);
 
         }
     }

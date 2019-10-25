@@ -5,7 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.android.evineon.Group_meeting_Activity;
+import com.example.android.evineon.Groups_Meeting_show_Activity;
+import com.example.android.evineon.MainActivity;
 import com.example.android.evineon.R;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
@@ -102,12 +103,18 @@ public class Group_Activity extends AppCompatActivity {
         findViewById(R.id.card_view_meeting).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Group_Activity.this, Group_meeting_Activity.class);
+                Intent intent=new Intent(Group_Activity.this, Groups_Meeting_show_Activity.class);
                 intent.putExtra("Groupname",groupname);
                 intent.putExtra("Usertype",usertype);
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(Group_Activity.this, MainActivity.class));
     }
 
     private void takedata() {

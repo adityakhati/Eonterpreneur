@@ -77,7 +77,7 @@
         <item name="android:textColor">@color/primary_text</item>
         <item name="textAllCaps">false</item>
         <item name="android:padding">18dp</item>
-        <item name="android:textSize">18dip</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:singleLine">true</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -88,7 +88,7 @@
         <item name="android:textColor">@color/primary</item>
         <item name="textAllCaps">false</item>
         <item name="android:padding">18dp</item>
-        <item name="android:textSize">18dip</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:singleLine">true</item>
     </style>
 
@@ -106,29 +106,30 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:gravity">center</item>
         <item name="android:padding">12dp</item>
-        <item name="android:textSize">28dp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/app_bar</item>
     </style>
 
     <style name="CardView.Dark.TextLight" parent="CardView.Dark.Text">
         <item name="android:textColor">@color/secondary_text</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="CardView.Dark.Text.Medium" parent="CardView.Dark.Text">
-        <item name="android:textSize">22dp</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="CardView.Dark.TextLight.Medium" parent="CardView.Dark.TextLight">
-        <item name="android:textSize">22dp</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="AppTheme.RadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
         <item name="android:checked">false</item>
         <item name="buttonTint">@color/primary_dark</item>
-        <item name="android:padding">8dp</item>
-        <item name="android:layout_marginLeft">12dp</item>
-        <item name="android:layout_marginRight">12dp</item>
-        <item name="android:textSize">18dip</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
 </resources>
